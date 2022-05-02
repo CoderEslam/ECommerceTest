@@ -9,20 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.doubleclick.ecommerce.R;
 import com.doubleclick.ecommerce.model.ItemProduct;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class OrderProductActivity extends AppCompatActivity {
 
@@ -32,7 +23,6 @@ public class OrderProductActivity extends AppCompatActivity {
     Button plusone, minsone, addToCart;
     int order = 0;
     ItemProduct itemProduct;
-    FirebaseAuth auth;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -41,7 +31,6 @@ public class OrderProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_product);
         itemProduct = (ItemProduct) getIntent().getSerializableExtra("itemProduct");
         image = findViewById(R.id.imageProduct);
-        auth = FirebaseAuth.getInstance();
         name = findViewById(R.id.name);
         des = findViewById(R.id.description_product);
         trad = findViewById(R.id.tardemarke);

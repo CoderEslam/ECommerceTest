@@ -20,6 +20,8 @@
     <color name="red">#FF0000</color>
     <color name="green">#37FF00</color>
     <color name="Offwhite">#E2FBFBF8</color>
-
     <color name="darkGray">#AB192016</color>
+    <color name="bink">#E91E63</color>
+    <color name="priple">#673AB7</color>
+    <color name="offwhite">#FEFEFE</color>
 </resources>

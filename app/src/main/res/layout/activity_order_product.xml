@@ -38,58 +38,21 @@
         android:layout_marginEnd="8dp"
         android:text="Descriptions"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
 
     <TextView
-        android:id="@+id/price_discount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="2000"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_product" />
-
-
-    <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
         android:text="3000"
         android:textColor="@color/darkGray"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/price_discount"
-        app:layout_constraintStart_toEndOf="@+id/price_discount"
-        app:layout_constraintTop_toTopOf="@+id/price_discount"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/price"
-        app:layout_constraintEnd_toEndOf="@+id/price"
-        app:layout_constraintStart_toStartOf="@+id/price"
-        app:layout_constraintTop_toTopOf="@+id/price" />
-
-    <TextView
-        android:id="@+id/precintage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="25%"
-        android:textColor="@color/red"
-        android:textSize="48sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price_discount" />
+        app:layout_constraintStart_toStartOf="@+id/description_product"
+        app:layout_constraintTop_toBottomOf="@+id/description_product" />
 
     <TextView
         android:id="@+id/tardemarke"
@@ -105,6 +68,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -112,7 +76,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/precintage">
+        app:layout_constraintTop_toBottomOf="@+id/tardemarke">
 
         <Button
 
@@ -141,5 +105,17 @@
             android:text="-1" />
 
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/addtoCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_main"
+        android:text="add to Card"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

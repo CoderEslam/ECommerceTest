@@ -41,7 +41,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
     public void onBindViewHolder(@NonNull productAdapter.ProdactViewHolder holder, int position) {
         ItemProduct itemProduct = itemProducts.get(position);
         holder.name.setText(itemProduct.getName());
-        holder.Desciption.setText(itemProduct.getDescription());
+        holder.price.setText(itemProduct.getPrice());
         holder.product_image.setImageDrawable(holder.itemView.getContext().getResources().getDrawable(itemProduct.getImage()));
 
     }
@@ -53,13 +53,13 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
 
     public class ProdactViewHolder extends RecyclerView.ViewHolder {
         ImageView product_image;
-        TextView name, Desciption;
+        TextView name, price;
 
         public ProdactViewHolder(@NonNull View itemView) {
             super(itemView);
             product_image = itemView.findViewById(R.id.product_image);
             name = itemView.findViewById(R.id.name);
-            Desciption = itemView.findViewById(R.id.description);
+            price = itemView.findViewById(R.id.price);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,5 +1,7 @@
 package com.doubleclick.ecommerce.ui.OrderProduct;
 
+import static com.doubleclick.ecommerce.BaseApplication.addToCard;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +16,6 @@ import com.doubleclick.ecommerce.R;
 import com.doubleclick.ecommerce.model.ItemProduct;
 
 
-
 public class OrderProductActivity extends AppCompatActivity {
 
 
@@ -23,6 +24,7 @@ public class OrderProductActivity extends AppCompatActivity {
     Button plusone, minsone, addToCart;
     int order = 0;
     ItemProduct itemProduct;
+    Button addtoCard;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -30,13 +32,12 @@ public class OrderProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_product);
         itemProduct = (ItemProduct) getIntent().getSerializableExtra("itemProduct");
+        addtoCard = findViewById(R.id.addtoCard);
         image = findViewById(R.id.imageProduct);
         name = findViewById(R.id.name);
         des = findViewById(R.id.description_product);
         trad = findViewById(R.id.tardemarke);
         price = findViewById(R.id.price);
-        pricsDis = findViewById(R.id.price_discount);
-        pricantage = findViewById(R.id.precintage);
         plusone = findViewById(R.id.plusone);
         minsone = findViewById(R.id.minsone);
         ProductQuntaty = findViewById(R.id.ProductQuntaty);
@@ -44,19 +45,7 @@ public class OrderProductActivity extends AppCompatActivity {
         des.setText(itemProduct.getDescription());
         trad.setText(itemProduct.getTrade());
         name.setText(itemProduct.getName());
-        if (Double.valueOf(itemProduct.getPrice()).equals(Double.valueOf(itemProduct.getDiscountPrice()))) {
-            pricsDis.setText(itemProduct.getPrice());
-        } else {
-            price.setText(itemProduct.getPrice());
-            pricsDis.setText(itemProduct.getDiscountPrice());
-            double l = Double.parseDouble(itemProduct.getPrice());
-            double s = Double.valueOf(itemProduct.getDiscountPrice());
-            double pricntag = ((l - s) / l) * 100.0;
-            pricantage.setText("" + pricntag + "%");
-            price.setVisibility(View.VISIBLE);
-            pricantage.setVisibility(View.VISIBLE);
-        }
-
+        price.setText(itemProduct.getPrice());
         plusone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +66,13 @@ public class OrderProductActivity extends AppCompatActivity {
                 } else {
                     order--;
                 }
+            }
+        });
+
+        addtoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToCard(itemProduct);
             }
         });
     }

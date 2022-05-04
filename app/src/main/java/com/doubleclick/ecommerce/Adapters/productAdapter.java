@@ -2,6 +2,7 @@ package com.doubleclick.ecommerce.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +42,16 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
     public void onBindViewHolder(@NonNull productAdapter.ProdactViewHolder holder, int position) {
         ItemProduct itemProduct = itemProducts.get(position);
         holder.name.setText(itemProduct.getName());
-        holder.price.setText(itemProduct.getPrice());
+        holder.price.setText(itemProduct.getPrice() + "EGP");
         holder.product_image.setImageDrawable(holder.itemView.getContext().getResources().getDrawable(itemProduct.getImage()));
-
+        Log.e("itemporoduct", itemProduct.toString());
+        if (!String.valueOf(itemProduct.getQuantity()).equals("")) {
+            holder.quntity.setVisibility(View.VISIBLE);
+            holder.quntity.setText(String.valueOf(itemProduct.getQuantity()));
+            if (itemProduct.getQuantity() == 0) {
+                holder.quntity.setVisibility(View.GONE);
+            }
+        }
     }
 
     @Override
@@ -53,14 +61,14 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
 
     public class ProdactViewHolder extends RecyclerView.ViewHolder {
         ImageView product_image;
-        TextView name, price;
+        TextView name, price, quntity;
 
         public ProdactViewHolder(@NonNull View itemView) {
             super(itemView);
             product_image = itemView.findViewById(R.id.product_image);
             name = itemView.findViewById(R.id.name);
             price = itemView.findViewById(R.id.price);
-
+            quntity = itemView.findViewById(R.id.quntity);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

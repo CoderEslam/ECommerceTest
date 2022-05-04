@@ -19,7 +19,7 @@ import com.doubleclick.ecommerce.model.ItemProduct;
 public class OrderProductActivity extends AppCompatActivity {
 
 
-    TextView name, des, trad, price, pricsDis, pricantage, ProductQuntaty;
+    TextView name, des, price, pricsDis, pricantage, ProductQuntaty;
     ImageView image;
     Button plusone, minsone, addToCart;
     int order = 0;
@@ -36,14 +36,12 @@ public class OrderProductActivity extends AppCompatActivity {
         image = findViewById(R.id.imageProduct);
         name = findViewById(R.id.name);
         des = findViewById(R.id.description_product);
-        trad = findViewById(R.id.tardemarke);
         price = findViewById(R.id.price);
         plusone = findViewById(R.id.plusone);
         minsone = findViewById(R.id.minsone);
         ProductQuntaty = findViewById(R.id.ProductQuntaty);
         image.setImageDrawable(getResources().getDrawable(itemProduct.getImage()));
         des.setText(itemProduct.getDescription());
-        trad.setText(itemProduct.getTrade());
         name.setText(itemProduct.getName());
         price.setText(itemProduct.getPrice());
         plusone.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +70,7 @@ public class OrderProductActivity extends AppCompatActivity {
         addtoCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addToCard(itemProduct);
+                addToCard(new ItemProduct(itemProduct.getName(), itemProduct.getDescription(), itemProduct.getPrice(), itemProduct.getImage(), order));
             }
         });
     }

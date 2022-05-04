@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@drawable/buttons_white"
+        android:background="@drawable/repple_effect"
         android:text="Log In"
         android:textAllCaps="false"
         android:textColor="@color/bink"

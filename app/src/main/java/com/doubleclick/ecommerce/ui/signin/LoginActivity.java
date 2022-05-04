@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.doubleclick.ecommerce.Home;
 import com.doubleclick.ecommerce.R;
@@ -35,6 +36,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (Check()) {
                     if (email.getText().toString().equals("yasser123@gmail.com") && password.getText().toString().equals("12345678")) {
                         startActivity(new Intent(LoginActivity.this, Home.class));
+                        progressBar.setVisibility(View.GONE);
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "invalid email or password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

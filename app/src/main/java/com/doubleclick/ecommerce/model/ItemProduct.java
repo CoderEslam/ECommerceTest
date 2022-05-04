@@ -13,37 +13,29 @@ public class ItemProduct implements Serializable {
     private String Name;
     private String Description;
     private String price;
-    private String discountPrice;
-    private String image;
     private String trade;
     private String Category;
-
-    public void setImage(int image) {
-        Image = image;
-    }
-
     private int Image;
+    private int quantity;
 
     public ItemProduct() {
     }
 
-    public ItemProduct(String name, String description, String price, String discountPrice, int image, String trade, String category) {
+    public ItemProduct(String name, String description, String price, int image, String trade, String category) {
         Name = name;
         Description = description;
         this.price = price;
-        this.discountPrice = discountPrice;
         this.Image = image;
         this.trade = trade;
         Category = category;
     }
 
-
-    public String getCategory() {
-        return Category;
-    }
-
-    public void setCategory(String category) {
-        Category = category;
+    public ItemProduct(String name, String description, String price, int image, int quantity) {
+        Name = name;
+        Description = description;
+        this.price = price;
+        Image = image;
+        this.quantity = quantity;
     }
 
 
@@ -71,22 +63,6 @@ public class ItemProduct implements Serializable {
         this.price = price;
     }
 
-    public String getDiscountPrice() {
-        return discountPrice;
-    }
-
-    public void setDiscountPrice(String discountPrice) {
-        this.discountPrice = discountPrice;
-    }
-
-    public int getImage() {
-        return Image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getTrade() {
         return trade;
     }
@@ -95,5 +71,27 @@ public class ItemProduct implements Serializable {
         this.trade = trade;
     }
 
+    public String getCategory() {
+        return Category;
+    }
 
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public int getImage() {
+        return Image;
+    }
+
+    public void setImage(int image) {
+        Image = image;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

@@ -19,12 +19,12 @@ import com.doubleclick.ecommerce.model.ItemProduct;
 public class OrderProductActivity extends AppCompatActivity {
 
 
-    TextView name, des, price, pricsDis, pricantage, ProductQuntaty;
+    TextView name, des, price, ProductQuntaty;
     ImageView image;
-    Button plusone, minsone, addToCart;
+    Button plusone, minsone, addtoCard;
     int order = 0;
     ItemProduct itemProduct;
-    Button addtoCard;
+
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -48,8 +48,7 @@ public class OrderProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 order++;
-                ProductQuntaty.setText(String.valueOf(order));
-
+                ProductQuntaty.setText(order + "");
             }
         });
 
@@ -59,7 +58,7 @@ public class OrderProductActivity extends AppCompatActivity {
                 ProductQuntaty.setText(String.valueOf(order));
                 if (order < 0) {
                     order = 0;
-                    ProductQuntaty.setText(String.valueOf(order));
+                    ProductQuntaty.setText(order + "");
                     return;
                 } else {
                     order--;

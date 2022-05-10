@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/offwhite">
+    android:background="@color/white">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,8 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/product"
-        tools:itemCount="5"/>
+        tools:listitem="@layout/product" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

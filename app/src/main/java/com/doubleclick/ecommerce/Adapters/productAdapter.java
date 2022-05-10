@@ -40,17 +40,15 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull productAdapter.ProdactViewHolder holder, int position) {
-        ItemProduct itemProduct = itemProducts.get(position);
-        holder.name.setText(itemProduct.getName());
-        holder.price.setText(itemProduct.getPrice() + "EGP");
-        holder.product_image.setImageDrawable(holder.itemView.getContext().getResources().getDrawable(itemProduct.getImage()));
-        Log.e("itemporoduct", itemProduct.toString());
-        if (!String.valueOf(itemProduct.getQuantity()).equals("")) {
+
+        holder.name.setText(itemProducts.get(position).getName());
+        holder.price.setText(itemProducts.get(position).getPrice() + "EGP");
+        holder.product_image.setImageDrawable(holder.itemView.getContext().getResources().getDrawable(itemProducts.get(position).getImage()));
+        if (itemProducts.get(position).getQuantity() != 0) {
             holder.quntity.setVisibility(View.VISIBLE);
-            holder.quntity.setText(String.valueOf(itemProduct.getQuantity()));
-            if (itemProduct.getQuantity() == 0) {
-                holder.quntity.setVisibility(View.GONE);
-            }
+            holder.quntity.setText(itemProducts.get(position).getQuantity() + "");
+        } else {
+            holder.quntity.setVisibility(View.GONE);
         }
     }
 
@@ -59,26 +57,25 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.ProdactV
         return itemProducts.size();
     }
 
+
     public class ProdactViewHolder extends RecyclerView.ViewHolder {
         ImageView product_image;
         TextView name, price, quntity;
 
-        public ProdactViewHolder(@NonNull View itemView) {
-            super(itemView);
-            product_image = itemView.findViewById(R.id.product_image);
-            name = itemView.findViewById(R.id.name);
-            price = itemView.findViewById(R.id.price);
-            quntity = itemView.findViewById(R.id.quntity);
-            itemView.setOnClickListener(new View.OnClickListener() {
+        public ProdactViewHolder(@NonNull View view) {
+            super(view);
+            product_image = view.findViewById(R.id.product_image);
+            name = view.findViewById(R.id.name);
+            price = view.findViewById(R.id.price);
+            quntity = view.findViewById(R.id.quntity);
+            view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(itemView.getContext(), OrderProductActivity.class);
+                    Intent intent = new Intent(view.getContext(), OrderProductActivity.class);
                     intent.putExtra("itemProduct", itemProducts.get(getAdapterPosition()));
-                    itemView.getContext().startActivity(intent);
+                    view.getContext().startActivity(intent);
                 }
             });
         }
-
-
     }
 }

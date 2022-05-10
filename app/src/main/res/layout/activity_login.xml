@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
-    tools:context=".ui.signin.LoginActivity">
+    android:background="@drawable/bg_main">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/circleImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="@drawable/white_fram"
         android:src="@drawable/person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,10 +20,10 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <EditText
-        android:id="@id/email"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/white_fram"
         android:drawableStart="@drawable/email"
         android:hint="Email"
@@ -52,14 +52,14 @@
         app:layout_constraintTop_toBottomOf="@id/email" />
 
     <Button
-        android:id="@+id/done"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/repple_effect"
         android:text="Log In"
         android:textAllCaps="false"
-        android:textColor="@color/bink"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
